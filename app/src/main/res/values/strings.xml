@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">NewsApp</string>
+    <string name="title_home">Accueil</string>
+    <string name="title_categories">Catégories</string>
+    <string name="title_favorites">Favoris</string>
+    <string name="btn_add_favorite">Ajouter aux favoris</string>
+    <string name="btn_remove_favorite">Retirer des favoris</string>
+    <string name="no_articles">Aucun article trouvé</string>
+    <string name="loading">Chargement...</string>
+    <string name="error">Erreur lors du chargement</string>
+    <string name="category_all">Tous</string>
+    <string name="category_politics">Politique</string>
+    <string name="category_business">Affaires</string>
+    <string name="category_tech">Tech</string>
+    <string name="category_sports">Sports</string>
+    <string name="category_culture">Culture</string>
+</resources>
