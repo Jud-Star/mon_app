@@ -1,0 +1,42 @@
+name: Build Android APK
+
+on:
+  push:
+    branches:
+      - Principaux
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. Récupérer le code source du dépôt
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2. Configurer l'environnement Java (nécessaire pour Android)
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+
+      # 3. Configurer l'environnement Flutter
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          
+      # 4. Récupérer les dépendances du projet
+      - name: Install dependencies
+        run: flutter pub get
+
+      # 5. Compiler l'application en mode Release APK
+      - name: Build APK
+        run: flutter build apk --release
+
+      # 6. Rendre l'APK disponible au téléchargement dans GitHub Actions
+      - name: Upload APK Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-release-apk
+          path: build/app/outputs/flutter-apk/app-release.apk
